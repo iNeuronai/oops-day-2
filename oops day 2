@@ -18,3 +18,35 @@ class file :
         except Exception as e : 
             print(e)
     
+
+
+
+import logging
+
+logging.basicConfig(filename='file_class.log', level=logging.DEBUG , filemode='w', format="%(asctime)s %(levelname)s %(message)s"
+
+class file : 
+    def __init__(self , filename)  :
+        self.filename = filename 
+                    
+    def read(self):
+        logging.info("This is a start of read operation " )
+        try :
+            logging.info("i am inside try block of read method ")
+            with open(self.filename , 'r') as file :
+                data = file.read()
+                logging.info("I am able to read the file ")
+                return data
+        except FileNotFoundError as e :
+            #print(e)
+            logging.error("there is some issue with  the read file operation")
+            logging.error(e)
+        
+    def write(self,data1):
+        try: 
+            
+            with open(self.filename, 'a') as file :
+                data = file.write(data1) 
+        except Exception as e : 
+            print(e)
+    
