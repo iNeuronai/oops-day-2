@@ -1,1 +1,20 @@
 
+import logging
+
+class file : 
+    def read(self):
+        try :
+            with open('test.txt' , 'r') as file :
+                data = file.read()
+                return data
+        except FileNotFoundError as e :
+            print(e)
+        
+    def write(self,data1):
+        try: 
+            
+            with open('test.txt' , 'a') as file :
+                data = file.write(data1) 
+        except Exception as e : 
+            print(e)
+    
